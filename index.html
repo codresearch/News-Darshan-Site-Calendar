@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      /* Ensure window.fetch has both getter and setter to prevent "Cannot set property fetch of #<Window> which has only a getter" */
+      (function () {
+        try {
+          var _origFetch = window.fetch;
+          var _currentFetch = _origFetch
+            ? function () {
+                return _origFetch.apply(window, arguments);
+              }
+            : undefined;
+
+          Object.defineProperty(window, 'fetch', {
+            get: function () {
+              return _currentFetch;
+            },
+            set: function (fn) {
+              _currentFetch = fn;
+            },
+            configurable: true,
+            enumerable: true,
+          });
+        } catch (e) {
+          try {
+            if (typeof Window !== 'undefined' && Window.prototype) {
+              var _protoFetch = Window.prototype.fetch;
+              var _curProto = _protoFetch
+                ? function () {
+                    return _protoFetch.apply(window, arguments);
+                  }
+                : undefined;
+              Object.defineProperty(Window.prototype, 'fetch', {
+                get: function () {
+                  return _curProto;
+                },
+                set: function (fn) {
+                  _curProto = fn;
+                },
+                configurable: true,
+                enumerable: true,
+              });
+            }
+          } catch (err) {}
+        }
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NewsDarshan – Hindu Calendar 2027 & Panchang</title>
+    <meta name="description" content="Comprehensive Hindu Calendar 2027, Daily Panchang, Choghadiya, Regional Calendars (Marathi, Gujarati, Telugu, Tamil, Bengali, Hindi), Festivals, Vrat, Muhurat & Rashifal." />
+    <meta property="og:title" content="NewsDarshan – Hindu Calendar 2027 & Panchang" />
+    <meta property="og:description" content="Comprehensive Hindu Calendar 2027, Daily Panchang, Choghadiya, Regional Calendars, Festivals, Vrat, Muhurat & Rashifal." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.newsdarshan.in/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NewsDarshan – Hindu Calendar 2027 & Panchang" />
+    <meta name="twitter:description" content="Comprehensive Hindu Calendar 2027, Daily Panchang, Choghadiya, Regional Calendars, Festivals, Vrat, Muhurat & Rashifal." />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G061QQTE9T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-G061QQTE9T');
+    </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5817841895051108" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Noto+Serif+Devanagari:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Rozha+One&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-[#FAF7F2] text-[#241F1A] antialiased selection:bg-[#E8602E]/20 selection:text-[#9A3412]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

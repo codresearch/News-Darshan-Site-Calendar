@@ -1,0 +1,6 @@
+{
+  "name": "NewsDarshan – Hindu Calendar 2027 & Panchang",
+  "description": "Comprehensive Hindu Calendar 2027, Daily Panchang, Choghadiya, Regional Calendars (Marathi, Gujarati, Telugu, Tamil, Bengali, Hindi), Festivals, Vrat, Muhurat & Rashifal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
